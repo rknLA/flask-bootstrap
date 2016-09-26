@@ -100,3 +100,11 @@ class BootstrapRenderer(Visitor):
             item['class'] = 'active'
 
         return item
+
+    def visit_ImageView(self, node):
+        item = tags.li()
+        item.add(tags.a(node.get_img_tag(), href=node.get_url))
+        if node.active:
+            item['class'] = 'active'
+
+        return item
